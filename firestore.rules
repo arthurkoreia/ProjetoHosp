@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Acesso bloqueado por padrão. Antes de produção, implemente Firebase
+    // Authentication e regras por perfil (administrador, recepção, equipe).
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
