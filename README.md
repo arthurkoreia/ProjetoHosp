@@ -57,4 +57,4 @@ As regras em `firestore.rules` bloqueiam leitura e gravação por padrão. Não 
 
 ## Banco SQL de referência
 
-O modelo SQL Server preparado anteriormente é apenas uma referência de estrutura/migração. A aplicação Flutter usa Cloud Firestore como banco de dados operacional. O script SQL deve ser adicionado à pasta `database/` quando for incluído no repositório.
+O modelo SQL Server em `database/ProjetoHosp_Modelo_Banco.sql` é uma referência de estrutura/migração. A aplicação Flutter usa Cloud Firestore como banco de dados operacional.
