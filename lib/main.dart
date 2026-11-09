@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'firebase_options.dart';
 import 'pages/dashboard_page.dart';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/semantics.dart';
+
+
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -20,7 +25,12 @@ Future<void> main() async {
   }
 
   runApp(ProjetoHospApp(firebaseConfigurado: firebaseConfigurado));
+
+  if (kIsWeb) {
+    SemanticsBinding.instance.ensureSemantics();
+  }
 }
+
 
 class ProjetoHospApp extends StatelessWidget {
   const ProjetoHospApp({super.key, required this.firebaseConfigurado});
