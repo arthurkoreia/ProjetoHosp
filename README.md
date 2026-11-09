@@ -1,60 +1,36 @@
+
 # ProjetoHosp
 
-Sistema hospitalar acadêmico desenvolvido em Flutter para Web, com integração ao Cloud Firestore.
+**NP2 - Desenvolvimento Mobile | Flutter / Dart (Web) | Firebase / Cloud Firestore**
 
-## Repositório e Firebase
+## Aplicativo e objetivo
 
-- Firebase Project ID: `projetohosp-eec49`
-- Plataforma inicial: Web (Chrome)
-- Coleção inicial: `pacientes`
+O ProjetoHosp é um protótipo acadêmico de gestão hospitalar para organizar o cadastro e a consulta de pacientes fictícios. O objetivo é evitar informações dispersas e retrabalho, oferecendo um fluxo simples para registrar e consultar dados na nuvem. Consultas, atendimentos e relatórios são possibilidades de evolução apresentadas nos slides, não funcionalidades confirmadas no código.
 
-## Requisitos
+## Funcionalidades do protótipo
 
-- Flutter SDK
-- Dart SDK
-- Node.js (para Firebase CLI)
-- Conta Google com acesso ao projeto Firebase
+- **Painel:** atalhos para cadastrar e consultar pacientes.
+- **Cadastro:** nome, idade, telefone, atendimento (SUS, convênio ou particular), alergia informada e validação dos dados.
+- **Dados e consulta:** gravação prevista na coleção `pacientes` do Cloud Firestore com `add()`; listagem com `snapshots()` e `StreamBuilder`, carregamento e tela de detalhes via `Navigator`.
 
-## Preparar o Firebase
+## Tecnologias e dados do projeto
 
-1. No Firebase Console, abra o projeto `projetohosp-eec49`.
-2. Crie o banco em **Firestore Database**, caso ainda não exista.
-3. Registre um aplicativo Web no projeto.
-4. No terminal, na raiz do projeto, execute:
+- **Plataforma e armazenamento:** Flutter e Dart para Web (Chrome), com Firebase Cloud Firestore.
 
-```bash
-npm install -g firebase-tools
-firebase login
-dart pub global activate flutterfire_cli
-flutter pub get
-flutterfire configure
-```
+## Integrantes e divisão de funções
 
-5. Selecione o projeto `projetohosp-eec49` e a plataforma **Web**. O comando gera/substitui `lib/firebase_options.dart` com as configurações reais.
-6. Execute:
+- **Wictor Bazoni - R196070:** Coordenação, organização das entregas e apresentação.
+- **Pedro Miranda - F363FJ8:** Desenvolvimento da parte do recurso adicional (VLibras).
+- **Arthur Finarde - H75GFI2:** Integração com Firebase, listagem e testes dos dados.
+- **Laura Lima - R816567:** Desenvolvimento da apresentação e dos slides.
+- **Gabriel Salazar - R668CH5:** Navegação, formulários e validação dos campos.
 
-```bash
-flutter run -d chrome
-```
+## Recurso adicional - VLibras (UX e inclusão digital)
 
-## Funcionalidades iniciais
+**Escolha:** VLibras Widget, ferramenta gratuita do Governo Federal que traduz textos em português para Libras por meio de um avatar virtual. A proposta é tornar a interface mais acessível, facilitar a compreensão do conteúdo e ampliar a autonomia de pessoas surdas usuárias de Libras. O recurso complementa, mas não substitui intérpretes humanos ou outras medidas de acessibilidade.
 
-- Painel inicial com navegação.
-- Formulário controlado para cadastro de pacientes.
-- Campos de nome, idade e telefone.
-- Radio group para tipo de atendimento (enum).
-- Checkbox para alergia informada.
-- Gravação com `add()` na coleção `pacientes`.
-- Listagem em tempo real com `StreamBuilder`.
-- Tela de detalhes com passagem de dados entre páginas.
-- Indicador de carregamento.
+## Fontes
 
-## Segurança e dados de saúde
+- [Governo Federal - Suíte VLibras](https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras)
+- [VLibras - Manual oficial de integração do Widget para Web](https://vlibras.gov.br/doc/widget/installation/webpageintegration.html)
 
-Este repositório é uma base acadêmica, não um sistema hospitalar pronto para produção. Não cadastre dados reais de pacientes neste estágio. Dados de saúde são sensíveis. Antes de qualquer uso real, implemente autenticação, perfis de acesso, regras Firestore específicas, auditoria, política de retenção e avaliação de conformidade com a LGPD.
-
-As regras em `firestore.rules` bloqueiam leitura e gravação por padrão. Não as substitua por regras públicas. Configure regras autenticadas e por função antes de testar gravações no Firestore.
-
-## Banco SQL de referência
-
-O modelo SQL Server em `database/ProjetoHosp_Modelo_Banco.sql` é uma referência de estrutura/migração. A aplicação Flutter usa Cloud Firestore como banco de dados operacional.
